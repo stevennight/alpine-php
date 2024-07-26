@@ -1,4 +1,4 @@
-FROM registry.cn-hongkong.aliyuncs.com/stevennight-test/alpine-php:7.2-lastest
+FROM registry.cn-hongkong.aliyuncs.com/stevennight-test/alpine-php:7.2-latest
 
 COPY etc /opt/etc
 
