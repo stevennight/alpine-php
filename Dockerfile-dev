@@ -12,6 +12,7 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
         # clean
         && rm -rf /var/cache/apk/* \
         && rm -rf /tmp/* \
-        && rm -rf /opt/etc
+        && rm -rf /opt/etc \
+        && mkdir -p /run/nginx
 
 ENV XDEBUG_CLIENT_HOST 127.0.0.1
