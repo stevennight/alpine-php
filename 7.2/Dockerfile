@@ -18,7 +18,8 @@ RUN echo 1 \
         # install php gd
         && apk add zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev libwebp-dev \
         # && docker-php-ext-configure gd \
-        && docker-php-ext-configure gd --with-jpeg-dir="/usr/include/" --with-png-dir="/usr/include/" --with-zlib-dir="/usr/include/" --with-freetype-dir="/usr/include/freetype2" \
+        && docker-php-ext-configure gd --with-jpeg-dir="/usr/include/" --with-png-dir="/usr/include/" --with-freetype-dir="/usr/include/freetype2" \
+        && docker-php-ext-configure gd --with-jpeg-dir="/usr/include/" --with-png-dir="/usr/include/" --with-freetype-dir="/usr/include/freetype2" \
         && docker-php-ext-install -j$(nproc) gd \
         # install pdo_mysql
         && docker-php-ext-install -j$(nproc) pdo_mysql \
