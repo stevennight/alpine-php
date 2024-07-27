@@ -57,6 +57,7 @@ RUN echo 1 \
         && mkdir -p /var/log/nginx \
         && mkdir -p /etc/nginx/conf.d \
         && cp /opt/etc/nginx/nginx.conf /etc/nginx/nginx.conf \
+        && cp /opt/etc/nginx/mime.types /etc/nginx/mime.types \
         && cp /opt/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf \
         # php configure file
         && cp /opt/etc/php-fpm/php-fpm.d/www.conf /usr/local/etc/php-fpm.d/www.conf \
