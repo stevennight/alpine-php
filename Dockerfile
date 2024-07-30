@@ -13,7 +13,7 @@ RUN echo 1 \
         && apk add --no-cache pkgconfig gcc g++ make autoconf linux-headers \
         # workdir
         && mkdir -p /opt/www \
-        # php setting \
+        # php setting
         && cp /opt/etc/php/conf.d/security.ini /usr/local/etc/php/conf.d/security.ini \
         # install php gd
         && apk add zlib-dev libpng-dev libjpeg-turbo-dev freetype-dev libwebp-dev \
@@ -21,7 +21,7 @@ RUN echo 1 \
         && docker-php-ext-install -j$(nproc) gd \
         # install pdo_mysql
         && docker-php-ext-install -j$(nproc) pdo_mysql \
-        # install pdo_postgresql if need. too big. \
+        # install pdo_postgresql if need. too big.
         # && apk add postgresql-dev \
         # && docker-php-ext-install -j$(nproc) pdo_pgsql \
         # install redis
@@ -31,17 +31,17 @@ RUN echo 1 \
         && apk add libmemcached-dev openssl-dev zlib-dev \
         && pecl install memcached-3.2.0 \
         && docker-php-ext-enable memcached \
-        # install zip \
+        # install zip
         && apk add zlib-dev libzip-dev \
         && docker-php-ext-install -j$(nproc) zip \
-        # install bcmath \
+        # install bcmath
         && docker-php-ext-install -j$(nproc) bcmath \
-        # install pcntl \
+        # install pcntl
         && docker-php-ext-install -j$(nproc) pcntl \
-        # install intl, icu, icu data \
+        # install intl, icu, icu data
         && apk add icu-dev \
         && docker-php-ext-install -j$(nproc) intl \
-        # install calendar \
+        # install calendar
         && docker-php-ext-install -j$(nproc) calendar \
         # composer
         && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
@@ -49,7 +49,7 @@ RUN echo 1 \
         && php composer-setup.php \
         && php -r "unlink('composer-setup.php');" \
         && mv composer.phar /usr/local/bin/composer \
-        # nginx \
+        # nginx
         && addgroup www \
         && adduser -H -D -G www www\
         && apk add --no-cache nginx \
