@@ -4,6 +4,8 @@ COPY etc /opt/etc
 
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
         && apk add pkgconfig gcc g++ make autoconf linux-headers \
+        # install bash
+        && apk add bash \
         # install xdebug(dev)
         && pecl install xdebug-3.1.6 \
         && docker-php-ext-enable xdebug \
@@ -12,6 +14,6 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
         # clean
         && rm -rf /var/cache/apk/* \
         && rm -rf /tmp/* \
-        && rm -rf /opt/etc
+        && rm -rf /opt/etc \
 
 ENV XDEBUG_CLIENT_HOST 127.0.0.1
