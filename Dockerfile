@@ -1,7 +1,7 @@
-FROM php:7.2.34-fpm-alpine
+FROM hub.container.24-7to.icu/library/php:7.2.34-fpm-alpine
 
-COPY etc /opt/etc
-COPY bin /opt/bin
+COPY ./etc /opt/etc
+COPY ./bin /opt/bin
 
 RUN echo 1 \
         # && sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
@@ -59,6 +59,10 @@ RUN echo 1 \
         && cp /opt/etc/nginx/nginx.conf /etc/nginx/nginx.conf \
         && cp /opt/etc/nginx/mime.types /etc/nginx/mime.types \
         && cp /opt/etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf \
+        && mkdir -p /var/lib/nginx/tmp/client_body/ \
+        && chown -R www:www /var/lib/nginx/ \
+        && chown -R www:www /var/lib/nginx/tmp/ \
+        && chown -R www:www /var/lib/nginx/tmp/client_body/ \
         # php configure file
         && cp /opt/etc/php-fpm/php-fpm.d/www.conf /usr/local/etc/php-fpm.d/www.conf \
         # clean

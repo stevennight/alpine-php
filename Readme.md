@@ -16,7 +16,7 @@ docker exec -it test sh
 
 ## 推送仓库
 ```
-docker push registry.cn-hongkong.aliyuncs.com/stevennight-test/registry.cn-hongkong.aliyuncs.com/stevennight-test/alpine-php:7.2-latest
+docker push registry.cn-hongkong.aliyuncs.com/stevennight-test/alpine-php:7.2-latest
 ```
 
 # alpine-php-7.2-dev
